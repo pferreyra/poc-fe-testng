@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
 	private WebElement searchButton;
 	
 	@FindBy(className="breadcrumb__title")
-	private WebElement tituloFiltro;
+	private WebElement filterTitle;
 	
 	protected WebDriver driver;	
 
@@ -37,7 +37,7 @@ public class HomePage extends BasePage {
 	public String EnterProductToSearch(String search) {
 		searchFor.sendKeys(search);
 		searchButton.click();
-		String appliedSearch = tituloFiltro.getText();
+		String appliedSearch = filterTitle.getText();
 		return (appliedSearch);
 	}
 
