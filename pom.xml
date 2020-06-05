@@ -1,58 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.pferreyra.app</groupId>
-  <artifactId>poc-fe-testng</artifactId>
-  <version>1.0-SNAPSHOT</version>
+	<groupId>com.pferreyra.app</groupId>
+	<artifactId>poc-fe-testng</artifactId>
+	<version>1.0-SNAPSHOT</version>
 
-  <name>poc-fe-testng</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+	<name>poc-fe-testng</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <log4j.version>2.12.0</log4j.version>  
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<log4j.version>2.12.0</log4j.version>
+		<selenium.version>3.14.0</selenium.version>
+		<testng.version>7.2.0</testng.version>
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-     <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-remote-driver</artifactId>
-      <version>${selenium.version}</version>
-    </dependency>   
-    <dependency>
-	    <groupId>org.seleniumhq.selenium</groupId>
-	    <artifactId>selenium-api</artifactId>
-	    <version>${selenium.version}</version>
-	</dependency> 
-	<dependency>
-    	<groupId>org.apache.logging.log4j</groupId>
-    	<artifactId>log4j-core</artifactId>
-    	<version>${log4j.version}</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.apache.logging.log4j</groupId>
-    	<artifactId>log4j-api</artifactId>
-    	<version>${log4j.version}</version>
-	</dependency>
-  </dependencies>
+	<repositories>
+		<repository>
+			<id>jcenter</id>
+			<name>bintray</name>
+			<url>https://jcenter.bintray.com</url>
+		</repository>
+	</repositories>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
