@@ -7,10 +7,10 @@ import com.pferreyra.app.helpers.BasePage;
 
 public class HomePage extends BasePage {
 	@FindBy(name="as_word")
-	private WebElement buscar;
+	private WebElement searchFor;
 
 	@FindBy(className="nav-search-btn")
-	private WebElement botonBuscar;
+	private WebElement searchButton;
 	
 	@FindBy(className="breadcrumb__title")
 	private WebElement tituloFiltro;
@@ -26,17 +26,19 @@ public class HomePage extends BasePage {
 			System.out.println("El sitio ingresado es incorrecto, el sitio es: " + currentURL);
 		}
 	}
+	
+	//Chequear bien la necesidad de esta función
 
 	/**
-	 * Ingresar una búsqueda de producto
+	 * Enter a product to search for
 	 * 
-	 * @param busqueda texto del producto a buscar
+	 * @param search text of product to be searched
 	 */
-	public String ingresarBusqueda(String busqueda) {
-		buscar.sendKeys(busqueda);
-		botonBuscar.click();
-		String busquedaAplicada = tituloFiltro.getText();
-		return (busquedaAplicada);
+	public String EnterProductToSearch(String search) {
+		searchFor.sendKeys(search);
+		searchButton.click();
+		String appliedSearch = tituloFiltro.getText();
+		return (appliedSearch);
 	}
 
 }
