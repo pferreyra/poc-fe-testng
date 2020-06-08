@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class BasePage {
 
-	private WebDriver driver;
+	protected WebDriver driver;
 	protected final String baseUrl = "https://www.mercadolibre.com.ar/";
 
 	public BasePage(WebDriver driver) {
@@ -14,7 +14,7 @@ public class BasePage {
 		driver.manage().window().maximize();
 	}
 
-	public void ingresarSitio() {
+	public void loadSite() {
 		driver.get(baseUrl);
 	}
 
@@ -22,7 +22,7 @@ public class BasePage {
 		return driver;
 	}
 	
-	public void ingresarPagina(String subDominio) {
-		driver.get(baseUrl + subDominio);
-	}
+//	public void ingresarPagina(String subDominio) {
+//		driver.get(baseUrl + subDominio);
+//	}
 }

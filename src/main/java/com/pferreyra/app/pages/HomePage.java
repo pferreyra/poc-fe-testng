@@ -15,19 +15,11 @@ public class HomePage extends BasePage {
 	@FindBy(className="breadcrumb__title")
 	private WebElement filterTitle;
 	
-	protected WebDriver driver;	
-
 	public HomePage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
-		ingresarSitio();
-		String currentURL = driver.getCurrentUrl();
-		if (!baseUrl.equals(currentURL)) {
-			System.out.println("El sitio ingresado es incorrecto, el sitio es: " + currentURL);
-		}
+		loadSite();
 	}
 	
-	//Chequear bien la necesidad de esta función
 
 	/**
 	 * Enter a product to search for

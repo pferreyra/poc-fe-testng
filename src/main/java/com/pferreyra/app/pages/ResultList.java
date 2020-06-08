@@ -16,7 +16,7 @@ public class ResultList {
 	  private WebElement appliedFilter;
 	  private List<WebElement> items;
 	  @FindBy(className="main-title")
-	  private WebElement item;
+	  private By item;
 	  private int i;
 	  
 	  public ResultList(WebDriver driver) {
@@ -25,39 +25,39 @@ public class ResultList {
 
 	  public int listedFilters() {
 	    list = driver.findElements(filter);
-	    int listadoSize = list.size();
-	    return listadoSize;
+	    int listSize = list.size();
+	    return listSize;
 	  }
 	  
 	  public String selectFilter(int i) {
 		  this.i = i;
 		  this.list = driver.findElements(filter);
 	  	if (list.get(i).isDisplayed()) {
-	  	    String titulo = list.get(i).getAttribute("Title");
+	  	    String title = list.get(i).getAttribute("Title");
 	  	    list.get(i).click();
-	  	    return titulo;
+	  	    return title;
 	  	} else {
 	  		return null;
 	  	}
 
 	  }
 	  
-	  public String tituloFiltroAplicado () {
-		    String tituloAplicado = driver.findElement(filtroAplicado).getText();
-		    System.out.println(tituloAplicado);
+	  public String appliedFilterTitle () {
+		    String appliedTitle = appliedFilter.getText();
+		    System.out.println(appliedTitle);
 		    driver.navigate().back();
-		    return (tituloAplicado);
+		    return (appliedTitle);
 		  }
 	  
 	  public String seleccionarPrimerItem() {
 		    items = driver.findElements(item);
-		    int listadoSize = items.size();
-		    String itemTitulo = null;
-		    if (listadoSize > 0) {
-		    	itemTitulo = items.get(0).getText();
+		    int listSize = items.size();
+		    String itemTitle = null;
+		    if (listSize > 0) {
+		    	itemTitle = items.get(0).getText();
 		    	items.get(0).click();
 		    }
-			return itemTitulo;
+			return itemTitle;
 		  }
 
 	}
