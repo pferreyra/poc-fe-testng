@@ -35,6 +35,7 @@ jsconfig.json
 target
 .classpath
 .metadata
+test-output
 
 maven-java-formatter-cache.properties
 /bin

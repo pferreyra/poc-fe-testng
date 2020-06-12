@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import com.pferreyra.app.helpers.BasePage;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
 	@FindBy(name="as_word")
@@ -14,10 +17,14 @@ public class HomePage extends BasePage {
 	
 	@FindBy(className="breadcrumb__title")
 	private WebElement filterTitle;
+	WebDriverWait wait = new WebDriverWait(driver,3);
+
 	
 	public HomePage(WebDriver driver) {
 		super(driver);
 		loadSite();
+        PageFactory.initElements(driver, this);
+
 	}
 	
 
@@ -29,6 +36,7 @@ public class HomePage extends BasePage {
 	public String EnterProductToSearch(String search) {
 		searchFor.sendKeys(search);
 		searchButton.click();
+		wait.until(ExpectedConditions.visibilityOf(filterTitle));
 		String appliedSearch = filterTitle.getText();
 		return (appliedSearch);
 	}

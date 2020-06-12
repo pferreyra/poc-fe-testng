@@ -12,7 +12,7 @@ public class BasePage {
 		this.driver = driver;
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-	}
+ 	}
 
 	public void loadSite() {
 		driver.get(baseUrl);
