@@ -1,6 +1,5 @@
 package com.pferreyra.app.pages;
 
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,9 +19,9 @@ public class ProductView extends BasePage {
 	}
 	
 	public String productPreview() {
-		try {
+		if (existInView(productTitle)) {
 			return productTitle.getText();
-		} catch (NoSuchElementException ex) {
+		} else {
 			return productTitleB.getText();
 		}
 	}
