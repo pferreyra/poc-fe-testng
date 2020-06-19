@@ -6,20 +6,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ResultList {
-	private WebDriver driver;
+import com.pferreyra.app.helpers.BasePage;
+
+public class ResultList extends BasePage {
 	@FindAll({ @FindBy(className = "qcat-truncate") })
 	private List<WebElement> list;
 	@FindBy(className = "applied-fliter")
 	private WebElement appliedFilter;
 	@FindAll({ @FindBy(className = "main-title") })
 	private List<WebElement> items;
-	private int i;
 
 	public ResultList(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
 	
 	/**
@@ -38,7 +39,6 @@ public class ResultList {
 	 * @param index of the element of the list
 	 */
 	public String selectFilter(int i) {
-		this.i = i;
 		if (list.get(i).isDisplayed()) {
 			String title = list.get(i).getAttribute("Title");
 			list.get(i).click();
@@ -56,11 +56,19 @@ public class ResultList {
 	 */
 	
 	public String appliedFilterTitle() {
-		String appliedTitle = appliedFilter.getText();
+		String appliedTitle = null;
+		if (existInView(appliedFilter)) {
+			appliedTitle = appliedFilter.getText();
+		}
 		driver.navigate().back();
-		return (appliedTitle);
+		return appliedTitle;
 	}
 
+	/**
+	 * Select the first item from a list of items
+	 * Returns the title of the item selected
+	 * @param none
+	 */
 	public String selectFirstItem() {
 		int listSize = items.size();
 		String itemTitle = null;

@@ -10,6 +10,8 @@ import helpers.TestData;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.Objects;
+
 import org.testng.annotations.BeforeMethod;
 
 public class ProductSearch extends BaseTest {
@@ -33,7 +35,7 @@ public class ProductSearch extends BaseTest {
 		landing.EnterProductToSearch(search);
 		resultsPage = new ResultList(driver);
 		int filtersNumber = resultsPage.listedFilters();
-		for (int i = 0; i <= filtersNumber; i++) {
+		for (int i = 0; i < filtersNumber; i++) {
 			String appliedFilter = resultsPage.selectFilter(i);
 			String appliedFilterTitle;
 			if (appliedFilter == null) {
@@ -41,9 +43,9 @@ public class ProductSearch extends BaseTest {
 			} else {
 				appliedFilterTitle = resultsPage.appliedFilterTitle();
 			}
-			sa.assertEquals(appliedFilter, appliedFilterTitle);
-			sa.assertAll();
+			sa.assertEquals(appliedFilterTitle, appliedFilter);
 		}
+		sa.assertAll();
 
 	}
 
