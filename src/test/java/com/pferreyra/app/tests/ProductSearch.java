@@ -7,13 +7,13 @@ import com.pferreyra.app.pages.ResultList;
 
 import helpers.BaseTest;
 import helpers.TestData;
+import listeners.GeneralListener;
 
 import static org.testng.Assert.assertEquals;
-
-import java.util.Objects;
-
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
+@Listeners(GeneralListener.class)
 public class ProductSearch extends BaseTest {
 	HomePage landing;
 	ResultList resultsPage;
