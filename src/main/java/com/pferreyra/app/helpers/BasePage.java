@@ -1,5 +1,6 @@
 package com.pferreyra.app.helpers;
 
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
 
-	protected WebDriver driver;
+	public WebDriver driver;
 	protected final String baseUrl = "https://www.mercadolibre.com.ar/";
 
 	public BasePage(WebDriver driver) {
@@ -43,6 +44,8 @@ public class BasePage {
 			return true;
 		} catch (NoSuchElementException ex) {
 			return false;
-		}		
-	}
+		}
+		
+	}	
+	
 }

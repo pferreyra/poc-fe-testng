@@ -8,9 +8,9 @@ public class TestData {
 	public static Object[][] getData() {
 		return new Object[][]{ 
 			new Object[] { "Sabanas" }, 
-			new Object[] { "Cafetera" }, 
-			new Object[] { "Cable" }, 
-			new Object[] { "Monitor" },
+//			new Object[] { "Cafetera" }, 
+//			new Object[] { "Cable" }, 
+//			new Object[] { "Monitor" },
 			};
 	}
 

@@ -10,7 +10,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterClass;
 
 public class BaseTest {
-	protected WebDriver driver;
+	public WebDriver driver;
 
 	@BeforeMethod
 	public void beforeMethod() {

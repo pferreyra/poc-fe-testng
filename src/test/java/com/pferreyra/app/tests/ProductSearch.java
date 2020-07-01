@@ -2,6 +2,8 @@ package com.pferreyra.app.tests;
 
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import org.testng.internal.collections.Pair;
+
 import com.pferreyra.app.pages.HomePage;
 import com.pferreyra.app.pages.ResultList;
 
@@ -10,6 +12,8 @@ import helpers.TestData;
 import listeners.GeneralListener;
 
 import static org.testng.Assert.assertEquals;
+
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
@@ -46,7 +50,8 @@ public class ProductSearch extends BaseTest {
 			sa.assertEquals(appliedFilterTitle, appliedFilter);
 		}
 		sa.assertAll();
-
+//Pair P = Pair.of(2, 2);
+//sa.assertEquals(P.first(),P.second());
 	}
 
 }
