@@ -33,7 +33,7 @@ public class HomePage extends BasePage {
 	 * 
 	 * @param search text of product to be searched
 	 */
-	public String EnterProductToSearch(String search) {
+	public String enterProductToSearch(String search) {
 		searchFor.sendKeys(search);
 		searchButton.click();
 		wait.until(ExpectedConditions.visibilityOf(filterTitle));

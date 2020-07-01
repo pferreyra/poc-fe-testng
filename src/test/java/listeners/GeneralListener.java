@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -21,8 +22,10 @@ public class GeneralListener implements ITestListener {
 
 	public void onTestFailure(ITestResult result){
         this.driver = ((BaseTest)result.getInstance()).driver;
+        String methodIdentifier = result.getInstance().getClass().getSimpleName() + "-" + result.getName();
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String destFile= "//Users//paulaferreyra//Documents//Automation//screenshot.jpg";		
+		String filename =  new SimpleDateFormat("yyyy-MM-dd_hhmmss'.jpg'").format(new Date());
+		String destFile= System.getProperty("java.io.tmpdir") + methodIdentifier + "-" + filename;		
 		try {
 			Files.copy(
 					screenshot.toPath(),
@@ -31,7 +34,7 @@ public class GeneralListener implements ITestListener {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} //TODO Poner un método aparte para crear el nombre del screenshot y darle destino
 
 	}
 

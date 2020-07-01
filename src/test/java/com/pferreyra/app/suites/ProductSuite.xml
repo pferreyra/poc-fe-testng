@@ -10,8 +10,8 @@
 <test name="Chrome Test">
 <parameter name="browser" value="chrome"></parameter>
 	<classes>
-		<class name="com.pferreyra.app.tests.ProductSearch"></class>
-<!-- 		<class name="com.pferreyra.app.tests.ProductDetails"></class>		
- -->	</classes>
+<!-- 		<class name="com.pferreyra.app.tests.ProductSearch"></class>
+ -->		<class name="com.pferreyra.app.tests.ProductDetails"></class>		
+	</classes>
 </test>
 </suite>

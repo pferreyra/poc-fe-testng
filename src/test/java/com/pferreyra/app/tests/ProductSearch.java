@@ -30,13 +30,13 @@ public class ProductSearch extends BaseTest {
 
 	@Test(dataProvider="search", dataProviderClass=TestData.class)
 	public void search(String search) {
-		String appliedSearch = landing.EnterProductToSearch(search);
+		String appliedSearch = landing.enterProductToSearch(search);
 		assertEquals(appliedSearch, search);
 	}
 	
 	@Test(dataProvider="search", dataProviderClass=TestData.class)
 	public void filter(String search) {
-		landing.EnterProductToSearch(search);
+		landing.enterProductToSearch(search);
 		resultsPage = new ResultList(driver);
 		int filtersNumber = resultsPage.listedFilters();
 		for (int i = 0; i < filtersNumber; i++) {
