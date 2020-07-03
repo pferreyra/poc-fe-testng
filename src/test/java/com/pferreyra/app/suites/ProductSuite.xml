@@ -1,17 +1,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Product Suite" parallel="tests">
-<!-- <test name="Firefox Test">
+<test name="Firefox Test">
 <parameter name="browser" value="firefox"></parameter>
 	<classes>
 		<class name="com.pferreyra.app.tests.ProductSearch"></class>
 		<class name="com.pferreyra.app.tests.ProductDetails"></class>	
 	</classes>
-</test> -->
+</test>
 <test name="Chrome Test">
 <parameter name="browser" value="chrome"></parameter>
 	<classes>
-<!-- 		<class name="com.pferreyra.app.tests.ProductSearch"></class>
- -->		<class name="com.pferreyra.app.tests.ProductDetails"></class>		
+		<class name="com.pferreyra.app.tests.ProductSearch"></class>
+		<class name="com.pferreyra.app.tests.ProductDetails"></class>		
 	</classes>
 </test>
 </suite>
