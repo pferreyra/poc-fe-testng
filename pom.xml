@@ -22,6 +22,7 @@
 		<testng.version>7.2.0</testng.version>
 		<allure.version>2.13.3</allure.version>
 		<aspectj.version>1.9.5</aspectj.version>
+		<alpn.jdk8.version>8.1.13.v20181017</alpn.jdk8.version>
 	</properties>
 
 	<repositories>

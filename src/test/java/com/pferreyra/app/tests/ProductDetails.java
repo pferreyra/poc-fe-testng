@@ -30,7 +30,6 @@ public class ProductDetails extends BaseTest{
 		landing.enterProductToSearch(search);
 		resultsPage = new ResultList(driver);
 		String selectedItemTitle = resultsPage.selectFirstItem();
-		assertEquals(true, false);//prueba
 		if (selectedItemTitle == null) {
 			System.out.println("No listed products");
 		} else {
