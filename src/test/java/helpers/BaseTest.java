@@ -2,6 +2,9 @@ package helpers;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+
+import com.pferreyra.app.pages.HomePage;
+
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,9 +14,11 @@ import org.testng.annotations.AfterClass;
 
 public class BaseTest {
 	public WebDriver driver;
+	protected HomePage landing;
 
 	@BeforeMethod
 	public void beforeMethod() {
+		landing = new HomePage(driver);
 	}
 
 	@BeforeClass

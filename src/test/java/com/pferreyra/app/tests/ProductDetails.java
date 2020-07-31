@@ -2,7 +2,6 @@ package com.pferreyra.app.tests;
 
 import org.testng.annotations.Test;
 
-import com.pferreyra.app.pages.HomePage;
 import com.pferreyra.app.pages.ProductView;
 import com.pferreyra.app.pages.ResultList;
 
@@ -11,19 +10,14 @@ import helpers.TestData;
 import listeners.GeneralListener;
 
 import static org.testng.Assert.assertEquals;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
 @Listeners(GeneralListener.class)
 public class ProductDetails extends BaseTest{
-	HomePage landing;
 	ResultList resultsPage;
 	ProductView productPage;
 
-	@BeforeMethod
-	public void beforeMethod() {
-		landing = new HomePage(driver);
-	}
+
 
 	@Test(dataProvider = "search", dataProviderClass = TestData.class)
 	public void productDescription(String search) {
