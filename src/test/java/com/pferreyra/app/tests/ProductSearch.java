@@ -15,8 +15,7 @@ import org.testng.annotations.Listeners;
 
 @Listeners(GeneralListener.class)
 public class ProductSearch extends BaseTest {
-	ResultList resultsPage;
-	SoftAssert sa = new SoftAssert();
+
 
 
 	@Test(dataProvider="search", dataProviderClass=TestData.class)
@@ -27,8 +26,8 @@ public class ProductSearch extends BaseTest {
 	
 	@Test(dataProvider="search", dataProviderClass=TestData.class)
 	public void filter(String search) {
-		landing.enterProductToSearch(search);
-		resultsPage = new ResultList(driver);
+		SoftAssert sa = new SoftAssert();
+		ResultList resultsPage = landing.searchAndResults(search);
 		int filtersNumber = resultsPage.listedFilters();
 		for (int i = 0; i < filtersNumber; i++) {
 			String appliedFilter = resultsPage.selectFilter(i);

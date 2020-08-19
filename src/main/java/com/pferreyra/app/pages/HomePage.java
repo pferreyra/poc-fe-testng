@@ -15,7 +15,7 @@ public class HomePage extends BasePage {
 	@FindBy(className="nav-search-btn")
 	private WebElement searchButton;
 	
-	@FindBy(className="breadcrumb__title")
+	@FindBy(css ="[class*=breadcrumb__title]")
 	private WebElement filterTitle;
 	WebDriverWait wait = new WebDriverWait(driver,3);
 
@@ -36,9 +36,14 @@ public class HomePage extends BasePage {
 	public String enterProductToSearch(String search) {
 		searchFor.sendKeys(search);
 		searchButton.click();
-		wait.until(ExpectedConditions.visibilityOf(filterTitle));
+			wait.until(ExpectedConditions.visibilityOf(filterTitle));
 		String appliedSearch = filterTitle.getText();
 		return (appliedSearch);
+	}
+	
+	public ResultList searchAndResults(String search) {
+		enterProductToSearch(search);		
+		return new ResultList(driver);
 	}
 
 }

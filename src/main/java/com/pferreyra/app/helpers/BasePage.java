@@ -1,6 +1,5 @@
 package com.pferreyra.app.helpers;
 
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.NoSuchElementException;

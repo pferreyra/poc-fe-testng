@@ -14,15 +14,13 @@ import org.testng.annotations.Listeners;
 
 @Listeners(GeneralListener.class)
 public class ProductDetails extends BaseTest{
-	ResultList resultsPage;
 	ProductView productPage;
 
 
 
 	@Test(dataProvider = "search", dataProviderClass = TestData.class)
 	public void productDescription(String search) {
-		landing.enterProductToSearch(search);
-		resultsPage = new ResultList(driver);
+		ResultList resultsPage = landing.searchAndResults(search);
 		String selectedItemTitle = resultsPage.selectFirstItem();
 		if (selectedItemTitle == null) {
 			System.out.println("No listed products");
