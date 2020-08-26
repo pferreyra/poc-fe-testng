@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import com.pferreyra.app.helpers.BasePage;
 
 public class ResultList extends BasePage {
-	@FindAll({ @FindBy(css = "[role=\"listbox\"] .qcat-truncate") })
+	@FindAll({ @FindBy(className = "ui-search-filter-name") })
 	private List<WebElement> list;
-	@FindBy(className = "applied-fliter")
+	@FindBy(className = "andes-tag__label")
 	private WebElement appliedFilter;
 	@FindAll({ @FindBy(className = "main-title") })
 	private List<WebElement> items;
@@ -36,7 +36,7 @@ public class ResultList extends BasePage {
 	 */
 	public String selectFilter(int i) {
 		if (list.get(i).isDisplayed()) {
-			String title = list.get(i).getAttribute("Title");
+			String title = list.get(i).getText();
 			list.get(i).click();
 			return title;
 		} else {

@@ -36,6 +36,7 @@ target
 .classpath
 .metadata
 test-output
+allure-results
 
 maven-java-formatter-cache.properties
 /bin
