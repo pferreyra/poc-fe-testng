@@ -14,6 +14,8 @@ public class ResultList extends BasePage {
 	private WebElement appliedFilter;
 	@FindAll({ @FindBy(className = "main-title") })
 	private List<WebElement> items;
+	@FindBy(css ="[class*=breadcrumb__title]")
+	private WebElement filterTitle;
 
 	public ResultList(WebDriver driver) {
 		super(driver);
@@ -74,5 +76,10 @@ public class ResultList extends BasePage {
 		}
 		return itemTitle;
 	}
+	
+	public String getFilterTitleText() {
+		return filterTitle.getText();
+	}
+	
 
 }

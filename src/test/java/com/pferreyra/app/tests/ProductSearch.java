@@ -20,14 +20,14 @@ public class ProductSearch extends BaseTest {
 
 	@Test(dataProvider="search", dataProviderClass=TestData.class)
 	public void search(String search) {
-		String appliedSearch = landing.enterProductToSearch(search);
+		String appliedSearch = landing.enterProductToSearch(search).getFilterTitleText();
 		assertEquals(appliedSearch, search);
 	}
 	
 	@Test(dataProvider="search", dataProviderClass=TestData.class)
 	public void filter(String search) {
 		SoftAssert sa = new SoftAssert();
-		ResultList resultsPage = landing.searchAndResults(search);
+		ResultList resultsPage = landing.enterProductToSearch(search);
 		int filtersNumber = resultsPage.listedFilters();
 		for (int i = 0; i < filtersNumber; i++) {
 			String appliedFilter = resultsPage.selectFilter(i);

@@ -20,7 +20,7 @@ public class ProductDetails extends BaseTest{
 
 	@Test(dataProvider = "search", dataProviderClass = TestData.class)
 	public void productDescription(String search) {
-		ResultList resultsPage = landing.searchAndResults(search);
+		ResultList resultsPage = landing.enterProductToSearch(search);
 		String selectedItemTitle = resultsPage.selectFirstItem();
 		if (selectedItemTitle == null) {
 			System.out.println("No listed products");
