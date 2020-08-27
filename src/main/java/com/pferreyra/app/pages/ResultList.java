@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import com.pferreyra.app.helpers.BasePage;
 
 public class ResultList extends BasePage {
-	@FindAll({ @FindBy(className = "ui-search-filter-name") })
+	@FindAll({ @FindBy(xpath = "//span[@class='ui-search-filter-results-qty']/preceding-sibling::span[@class='ui-search-filter-name']")})
 	private List<WebElement> list;
 	@FindBy(className = "andes-tag__label")
 	private WebElement appliedFilter;
