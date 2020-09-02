@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.testng.internal.collections.Pair;
+
 import com.pferreyra.app.helpers.BasePage;
 
 public class ResultList extends BasePage {
@@ -81,5 +83,15 @@ public class ResultList extends BasePage {
 		return filterTitle.getText();
 	}
 	
+
+
+	public Pair<String, String> applyFilters(int i) {
+		String appliedFilter = selectFilter(i);
+		String appliedFilterTitle = null;
+		if (appliedFilter != null) {
+			appliedFilterTitle = appliedFilterTitle();
+		}
+		return Pair.of(appliedFilterTitle,appliedFilter);
+	}
 
 }

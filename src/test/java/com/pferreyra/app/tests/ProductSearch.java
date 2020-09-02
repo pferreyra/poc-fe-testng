@@ -2,6 +2,8 @@ package com.pferreyra.app.tests;
 
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import org.testng.internal.collections.Pair;
+
 import com.pferreyra.app.pages.ResultList;
 
 import helpers.BaseTest;
@@ -24,24 +26,15 @@ public class ProductSearch extends BaseTest {
 		assertEquals(appliedSearch, search);
 	}
 	
-	@Test(dataProvider="search", dataProviderClass=TestData.class)
+	@Test(dataProvider = "search", dataProviderClass = TestData.class)
 	public void filter(String search) {
 		SoftAssert sa = new SoftAssert();
 		ResultList resultsPage = landing.enterProductToSearch(search);
-		int filtersNumber = resultsPage.listedFilters();
-		for (int i = 0; i < filtersNumber; i++) {
-			String appliedFilter = resultsPage.selectFilter(i);
-			String appliedFilterTitle;
-			if (appliedFilter == null) {
-				appliedFilterTitle = null;
-			} else {
-				appliedFilterTitle = resultsPage.appliedFilterTitle();
-			}
-			sa.assertEquals(appliedFilterTitle, appliedFilter);
+		for (int i = 0; i < resultsPage.listedFilters(); i++) {
+			Pair<String, String> filters = resultsPage.applyFilters(i);
+			sa.assertEquals(filters.first(), filters.second());
 		}
 		sa.assertAll();
-//Pair P = Pair.of(2, 2);
-//sa.assertEquals(P.first(),P.second());
 	}
 
 }
