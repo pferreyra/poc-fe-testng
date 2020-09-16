@@ -15,11 +15,13 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import helpers.BaseTest;
+import io.qameta.allure.Attachment;
 
 public class GeneralListener implements ITestListener {	
 
 	private WebDriver driver;
 
+	@Attachment(value="filename", type="image/jpg")
 	public void onTestFailure(ITestResult result){
         this.driver = ((BaseTest)result.getInstance()).driver;
         String methodIdentifier = result.getInstance().getClass().getSimpleName() + "-" + result.getName();

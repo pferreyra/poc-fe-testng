@@ -1,10 +1,12 @@
 package com.pferreyra.app.pages;
 
 import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.internal.collections.Pair;
 
 import com.pferreyra.app.helpers.BasePage;
@@ -18,9 +20,30 @@ public class ResultList extends BasePage {
 	private List<WebElement> items;
 	@FindBy(css ="[class*=breadcrumb__title]")
 	private WebElement filterTitle;
+	@FindBy(id = "cookieDisclaimerButton")
+	private WebElement cookieButton;
 
 	public ResultList(WebDriver driver) {
 		super(driver);
+		removeCookiesBanner();
+	}
+	
+	
+	/**
+	 * Accept cookies disclaimer
+	 * 
+	 * @param none
+	 */
+	public void removeCookiesBanner() {
+		/*It have to be a try catch because this webelement only appears 
+		 * the first time that ResultList it's displayed
+		 * */
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(cookieButton));
+			cookieButton.click();
+		} catch (Exception cookieEx) {
+			System.out.println("No cookie disclaimer");
+		}
 	}
 	
 	/**
@@ -79,11 +102,22 @@ public class ResultList extends BasePage {
 		return itemTitle;
 	}
 	
+	/**
+	 * Getter of Filter's Title
+	 * @param none
+	 * @return Filter's Title text
+	 */
+	
 	public String getFilterTitleText() {
 		return filterTitle.getText();
 	}
 	
-
+	/**
+	 * Select a filter based in an index
+	 * Get filter's title once it's applied
+	 * @param index of the filter list
+	 * @return filter applied and its title
+	 */
 
 	public Pair<String, String> applyFilters(int i) {
 		String appliedFilter = selectFilter(i);

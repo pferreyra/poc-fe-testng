@@ -6,17 +6,20 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
 	public WebDriver driver;
 	protected final String baseUrl = "https://www.mercadolibre.com.ar/";
+	protected WebDriverWait wait;
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		PageFactory.initElements(driver, this);
+		wait = new WebDriverWait(driver, 2);
  	}
 
 	public void loadSite() {
