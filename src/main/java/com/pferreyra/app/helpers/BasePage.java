@@ -19,7 +19,7 @@ public class BasePage {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 2);
+		wait = new WebDriverWait(driver, 4);
  	}
 
 	public void loadSite() {
