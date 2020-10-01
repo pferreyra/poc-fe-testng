@@ -2,6 +2,7 @@ package com.pferreyra.app.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -22,6 +23,8 @@ public class ResultList extends BasePage {
 	private WebElement filterTitle;
 	@FindBy(id = "cookieDisclaimerButton")
 	private WebElement cookieButton;
+	@FindBy(css = ".andes-tag__close:enabled")
+	private WebElement closeButton;
 
 	public ResultList(WebDriver driver) {
 		super(driver);
@@ -39,8 +42,7 @@ public class ResultList extends BasePage {
 		 * the first time that ResultList it's displayed
 		 * */
 		try {
-			wait.until(ExpectedConditions.elementToBeClickable(cookieButton));
-			cookieButton.click();
+			wait.until(ExpectedConditions.elementToBeClickable(cookieButton)).click();;
 		} catch (Exception cookieEx) {
 			System.out.println("No cookie disclaimer");
 		}
@@ -83,8 +85,11 @@ public class ResultList extends BasePage {
 		if (existInView(appliedFilter)) {
 			appliedTitle = appliedFilter.getText();
 		}
-		driver.navigate().back();
 		return appliedTitle;
+	}
+	
+	public void removeFilter() {
+		wait.until(ExpectedConditions.elementToBeClickable(closeButton)).click();
 	}
 
 	/**

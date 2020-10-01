@@ -33,6 +33,7 @@ public class ProductSearch extends BaseTest {
 		for (int i = 0; i < resultsPage.listedFilters(); i++) {
 			Pair<String, String> filters = resultsPage.applyFilters(i);
 			sa.assertEquals(filters.first(), filters.second());
+			resultsPage.removeFilter();
 		}
 		sa.assertAll();
 	}
